@@ -1,0 +1,19 @@
+.container-footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: 5%;
+    margin-bottom: 30px;
+}
+
+.button-open-form {
+    border: none;
+    border-radius: 70px;
+    box-shadow: 2px 2px 4px rgba(125, 64, 231, 0.4);
+    width: 70px;
+    height: 70px;
+    background-color: transparent;
+    font-size: 1.5em;
+    color: #fff;
+    background-color: rgba(125, 64, 231, 0.8);
+}
