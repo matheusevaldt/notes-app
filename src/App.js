@@ -6,9 +6,12 @@ import Sidebar from './components/Sidebar';
 import Form from './components/Form';
 import Notes from './components/Notes';
 import Footer from './components/Footer';
+import Notification from './components/Notification';
 
 function App() {
 
+  const [notificationIsOpened, setNotificationIsOpened] = useState(false);
+  const [notificationMessage, setNotificationMessage] = useState('');
   const [noteTitle, setNoteTitle] = useState('');
   const [noteMessage, setNoteMessage] = useState('');
   const [notePriority, setNotePriority] = useState('');
@@ -18,10 +21,21 @@ function App() {
 
   return (
     <>
+      {
+        notificationIsOpened &&
+        <Notification 
+          notificationMessage={notificationMessage} 
+          // setNotificationMessage={setNotificationMessage} 
+        />
+      }
       <Sidebar amountOfNotes={amountOfNotes} />
       {
         formIsOpened && 
         <Form 
+          // notificationIsOpened={notificationIsOpened}
+          setNotificationIsOpened={setNotificationIsOpened}
+          // notificationMessage={notificationMessage}
+          setNotificationMessage={setNotificationMessage}
           noteTitle={noteTitle}
           setNoteTitle={setNoteTitle}
           noteMessage={noteMessage}
@@ -41,7 +55,10 @@ function App() {
         amountOfNotes={amountOfNotes} 
         setAmountOfNotes={setAmountOfNotes} 
       />
-      <Footer formIsOpened={formIsOpened} setFormIsOpened={setFormIsOpened} />
+      <Footer 
+        formIsOpened={formIsOpened} 
+        setFormIsOpened={setFormIsOpened} 
+      />
     </>
   );
 

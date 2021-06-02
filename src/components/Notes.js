@@ -6,7 +6,6 @@ import Note from './Note';
 const Notes = ({ notes, setNotes, amountOfNotes, setAmountOfNotes }) => {
     return (
         <div className='notes-container'>
-            {/* <h1>Notes: {amountOfNotes} </h1> */}
             <ul>
                 {
                     notes.map(note => (
@@ -15,6 +14,7 @@ const Notes = ({ notes, setNotes, amountOfNotes, setAmountOfNotes }) => {
                             key={note.id} 
                             title={note.title}
                             message={note.message}
+                            priority={note.priority}
                             notes={notes} 
                             setNotes={setNotes} 
                             amountOfNotes={amountOfNotes}

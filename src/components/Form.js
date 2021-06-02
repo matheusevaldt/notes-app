@@ -1,14 +1,22 @@
 import React from 'react';
 import '../Form.css';
 
-const Form = ({ noteTitle, setNoteTitle, noteMessage, setNoteMessage, notePriority, setNotePriority, notes, setNotes, amountOfNotes, setAmountOfNotes, setFormIsOpened }) => {
+const Form = ({ setNotificationIsOpened, setNotificationMessage, noteTitle, setNoteTitle, noteMessage, setNoteMessage, notePriority, setNotePriority, notes, setNotes, amountOfNotes, setAmountOfNotes, setFormIsOpened }) => {
 
     const handleNoteTitle = (event) => setNoteTitle(event.target.value);
     const handleNoteMessage = (event) => setNoteMessage(event.target.value);
 
     const handleSubmitForm = (event) => {
-        console.log('Note added.');
+
         event.preventDefault();
+
+        if (noteTitle === '' || noteMessage === '' || notePriority === '') {
+            setNotificationMessage('You must fill all fields.');
+            setNotificationIsOpened(true);
+            setTimeout(() => setNotificationIsOpened(false), 3000);
+            return;
+        }
+
         setNotes([
             ...notes, { 
                 title: noteTitle,

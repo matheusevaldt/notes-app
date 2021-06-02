@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Note = ({ title, message, note, notes, setNotes, amountOfNotes, setAmountOfNotes }) => {
+const Note = ({ title, message, priority, note, notes, setNotes, amountOfNotes, setAmountOfNotes }) => {
 
     const handleDeleteNote = () => {
         setNotes(notes.filter(element => element.id !== note.id));
@@ -26,6 +26,7 @@ const Note = ({ title, message, note, notes, setNotes, amountOfNotes, setAmountO
         <div className='note-container' >
             <h2>{title}</h2>
             <li className={`note-message ${note.completed ? 'note-completed' : ''}`}>{message}</li>
+            <p>{priority}</p>
             <button onClick={handleStatusNote} className='button-status-note'>V</button>
             <button onClick={handleDeleteNote} className='button-delete-note'>DELETE</button>
             <button onClick={openEditNote} className='button-open-edit-note'>EDIT</button>
