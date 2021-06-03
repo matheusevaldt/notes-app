@@ -25,6 +25,7 @@ function App() {
         notificationIsOpened &&
         <Notification 
           notificationMessage={notificationMessage} 
+          setNotificationIsOpened={setNotificationIsOpened}
           // setNotificationMessage={setNotificationMessage} 
         />
       }
@@ -32,7 +33,7 @@ function App() {
       {
         formIsOpened && 
         <Form 
-          // notificationIsOpened={notificationIsOpened}
+          notificationIsOpened={notificationIsOpened}
           setNotificationIsOpened={setNotificationIsOpened}
           // notificationMessage={notificationMessage}
           setNotificationMessage={setNotificationMessage}

@@ -1,7 +1,9 @@
 import React from 'react';
 import '../Form.css';
 
-const Form = ({ setNotificationIsOpened, setNotificationMessage, noteTitle, setNoteTitle, noteMessage, setNoteMessage, notePriority, setNotePriority, notes, setNotes, amountOfNotes, setAmountOfNotes, setFormIsOpened }) => {
+import Notification from './Notification';
+
+const Form = ({ notificationIsOpened, setNotificationIsOpened, setNotificationMessage, noteTitle, setNoteTitle, noteMessage, setNoteMessage, notePriority, setNotePriority, notes, setNotes, amountOfNotes, setAmountOfNotes, setFormIsOpened }) => {
 
     const handleNoteTitle = (event) => setNoteTitle(event.target.value);
     const handleNoteMessage = (event) => setNoteMessage(event.target.value);
@@ -11,18 +13,21 @@ const Form = ({ setNotificationIsOpened, setNotificationMessage, noteTitle, setN
         event.preventDefault();
 
         if (noteTitle === '' || noteMessage === '' || notePriority === '') {
-            setNotificationMessage('You must fill all fields.');
+            setNotificationMessage('Fill in all fields before adding a note.');
             setNotificationIsOpened(true);
-            setTimeout(() => setNotificationIsOpened(false), 3000);
+            setTimeout(() => {
+                    setNotificationIsOpened(false);
+                    <Notification notification={'aaaaaaaaaaa'} />
+            }, 4000);
             return;
         }
 
         setNotes([
             ...notes, { 
-                title: noteTitle,
+                title: noteTitle, 
                 message: noteMessage, 
                 id: (Math.random() * 1000).toFixed(0), 
-                priority: notePriority,
+                priority: notePriority, 
                 completed: false 
             }
         ]);
@@ -50,7 +55,7 @@ const Form = ({ setNotificationIsOpened, setNotificationMessage, noteTitle, setN
     return (
         <div className='form-container'>
             <div className='form-header'>
-                <p>adding a new note</p>
+                <p>Adding a new note</p>
                 <button onClick={handleCloseForm}>&times;</button>
             </div>
             <form>
