@@ -1,36 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../Notification.css';
 
-// const Notification = ({ notificationMessage, setNotificationIsOpened }) => {
-class Notification extends Component {
+const Notification = ({ notificationMessage, setNotificationIsOpened }) => {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            notification: 'false'
-        };
-    }
-
-    // console.log(notificationMessage);
-
-    handleCloseNotification = () => {
-        this.setState({
-            notification: 'true'
-        });
-        // setNotificationIsOpened(false);
+    const handleCloseNotification = () => {
+        setNotificationIsOpened(false);
     };
 
-    render() {
-        return (
-            <div className='notification-container'>
-                <h1>Attention!</h1>
-                <p>{this.state.notification}</p>
-                <button onClick={this.handleCloseNotification}>OK</button>
-            </div>
-        );
-    }
+    return (
+        <div className='notification-container'>
+            <h1>Attention!</h1>
+            <p>{notificationMessage}</p>
+            <button onClick={handleCloseNotification}>OK</button>
+        </div>
+    );
 
-}
-// };
+};
+
 
 export default Notification;

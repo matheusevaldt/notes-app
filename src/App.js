@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import './global.css';
+
 // Importing components.
 import Sidebar from './components/Sidebar';
 import Form from './components/Form';
@@ -25,17 +26,13 @@ function App() {
         notificationIsOpened &&
         <Notification 
           notificationMessage={notificationMessage} 
-          setNotificationIsOpened={setNotificationIsOpened}
-          // setNotificationMessage={setNotificationMessage} 
-        />
+          setNotificationIsOpened={setNotificationIsOpened} />
       }
       <Sidebar amountOfNotes={amountOfNotes} />
       {
         formIsOpened && 
         <Form 
-          notificationIsOpened={notificationIsOpened}
           setNotificationIsOpened={setNotificationIsOpened}
-          // notificationMessage={notificationMessage}
           setNotificationMessage={setNotificationMessage}
           noteTitle={noteTitle}
           setNoteTitle={setNoteTitle}
@@ -47,19 +44,19 @@ function App() {
           setNotes={setNotes} 
           amountOfNotes={amountOfNotes}
           setAmountOfNotes={setAmountOfNotes}
-          setFormIsOpened={setFormIsOpened}
-        />
+          setFormIsOpened={setFormIsOpened} />
       }
-      <Notes 
-        notes={notes} 
-        setNotes={setNotes} 
-        amountOfNotes={amountOfNotes} 
-        setAmountOfNotes={setAmountOfNotes} 
-      />
+      {
+        amountOfNotes > 0 &&
+        <Notes 
+          notes={notes} 
+          setNotes={setNotes} 
+          amountOfNotes={amountOfNotes} 
+          setAmountOfNotes={setAmountOfNotes} />
+      }
       <Footer 
         formIsOpened={formIsOpened} 
-        setFormIsOpened={setFormIsOpened} 
-      />
+        setFormIsOpened={setFormIsOpened} />
     </>
   );
 
