@@ -16,21 +16,30 @@ const Form = ({ setNotificationIsOpened, setNotificationMessage, noteTitle, setN
             return;
         }
 
-        setNotes([
-            ...notes, { 
-                title: noteTitle, 
-                message: noteMessage, 
-                id: (Math.random() * 1000).toFixed(0), 
-                priority: notePriority, 
-                completed: false 
-            }
-        ]);
+        handleNoteData();
 
         setAmountOfNotes(amountOfNotes + 1);
 
         // Closing the form component and reseting the states.
         handleCloseForm();
 
+    };
+
+    const handleNoteData = () => {
+        const date = new Date();
+        setNotes([
+            ...notes, { 
+                id: (Math.random() * 1000).toFixed(0), 
+                title: noteTitle, 
+                message: noteMessage, 
+                priority: notePriority, 
+                date: {
+                    hourOfCreation: `${date.getHours()}:${date.getMinutes()}`,
+                    dayOfCreation: date.toLocaleDateString('en-GB')
+                },
+                completed: false 
+            }
+        ]);
     };
 
     const handleCloseForm = () => {

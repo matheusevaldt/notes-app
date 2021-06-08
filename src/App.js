@@ -52,7 +52,8 @@ function App() {
           notes={notes} 
           setNotes={setNotes} 
           amountOfNotes={amountOfNotes} 
-          setAmountOfNotes={setAmountOfNotes} />
+          setAmountOfNotes={setAmountOfNotes} 
+          setFormIsOpened={setFormIsOpened} />
       }
       <Footer 
         formIsOpened={formIsOpened} 
