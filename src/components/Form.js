@@ -1,31 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../Form.css';
 
-const Form = ({ setNotificationIsOpened, setNotificationMessage, noteTitle, setNoteTitle, noteMessage, setNoteMessage, notePriority, setNotePriority, notes, setNotes, amountOfNotes, setAmountOfNotes, setFormIsOpened }) => {
+const Form = ({ setNotificationIsOpened, setNotificationMessage, noteTitle, setNoteTitle, noteMessage, setNoteMessage, notePriority, setNotePriority, notes, setNotes, amountOfNotes, setAmountOfNotes, setFormIsOpened, noteEdited, setNoteEdited, noteIsBeingEdited, setNoteIsBeingEdited }) => {
 
     const handleNoteTitle = (event) => setNoteTitle(event.target.value);
-    const handleNoteMessage = (event) => setNoteMessage(event.target.value);
+    const handleNoteMessage = (event) =>  setNoteMessage(event.target.value);
 
-    const handleSubmitForm = (event) => {
-
+    const handleSubmitNote = (event) => {
         event.preventDefault();
-
         if (noteTitle === '' || noteMessage === '' || notePriority === '') {
             setNotificationMessage('Fill in all fields before adding a note.');
             setNotificationIsOpened(true);
             return;
         }
-
-        handleNoteData();
-
-        setAmountOfNotes(amountOfNotes + 1);
-
-        // Closing the form component and reseting the states.
-        handleCloseForm();
-
-    };
-
-    const handleNoteData = () => {
         const date = new Date();
         setNotes([
             ...notes, { 
@@ -35,15 +22,41 @@ const Form = ({ setNotificationIsOpened, setNotificationMessage, noteTitle, setN
                 priority: notePriority, 
                 date: {
                     hourOfCreation: `${date.getHours()}:${date.getMinutes()}`,
-                    dayOfCreation: date.toLocaleDateString('en-GB')
+                    dayOfCreation: date.toLocaleDateString('en-GB', { day: 'numeric', month: 'numeric' })
                 },
+                lastUpdated: '',
                 completed: false 
             }
         ]);
+        setAmountOfNotes(amountOfNotes + 1);
+        handleCloseForm();
+    };
+
+    const handleUpdateNote = (event) => {
+        event.preventDefault();
+        if (noteTitle === '' || noteMessage === '') {
+            setNotificationMessage('Fill in all fields before adding a note.');
+            setNotificationIsOpened(true);
+            return;
+        }
+        setNotes(notes.map(note => {
+            if (note.id === noteEdited.id) {
+                return {
+                    ...note, 
+                    title: noteTitle, 
+                    message: noteMessage, 
+                    priority: notePriority, 
+                    lastUpdated: `${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'numeric' })} at ${new Date().getHours()}:${new Date().getMinutes()}.`
+                }
+            }
+            return note;
+        }));
+        handleCloseForm();
     };
 
     const handleCloseForm = () => {
         setFormIsOpened(false);
+        setNoteIsBeingEdited(false);
         setNoteMessage('');
         setNoteTitle('');
         setNotePriority('');
@@ -54,6 +67,15 @@ const Form = ({ setNotificationIsOpened, setNotificationMessage, noteTitle, setN
         setNotePriority(priority);
     };
 
+    useEffect(() => {
+        if (noteIsBeingEdited) {
+            console.log(noteEdited);
+            setNoteTitle(noteEdited.title);
+            setNoteMessage(noteEdited.message);
+            setNotePriority(noteEdited.priority);
+        }
+    }, [noteIsBeingEdited, noteEdited, setNoteTitle, setNoteMessage, setNotePriority]);
+
     return (
         <div className='form-container'>
             <div className='form-header'>
@@ -62,11 +84,13 @@ const Form = ({ setNotificationIsOpened, setNotificationMessage, noteTitle, setN
             </div>
             <form>
                 <input
+                    id='input-note-title'
                     placeholder='Title'
                     type='text'
                     value={noteTitle}
                     onChange={handleNoteTitle}></input>
                 <textarea 
+                    id='textarea-note-message'
                     placeholder='Write your note here...'
                     type='text' 
                     value={noteMessage}
@@ -87,10 +111,13 @@ const Form = ({ setNotificationIsOpened, setNotificationMessage, noteTitle, setN
                             className={`button-priority ${notePriority === 'high' ? 'priority-selected' : ''}`}>HIGH</button>
                     </div>
                 </div>
+
                 <button
                     type='submit'
-                    onClick={handleSubmitForm}
-                    className='form-submit'>ADD NOTE</button>
+                    onClick={!noteIsBeingEdited ? handleSubmitNote : handleUpdateNote}
+                    className='form-submit'>{!noteIsBeingEdited ? 'ADD NOTE' : 'UPDATE NOTE'}
+                </button>
+
             </form>
             
         </div>

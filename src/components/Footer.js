@@ -3,10 +3,7 @@ import '../Footer.css';
 
 const Footer = ({ formIsOpened, setFormIsOpened }) => {
 
-    const handleOpenForm = () => {
-        setFormIsOpened(true);
-        console.log(formIsOpened);
-    };
+    const handleOpenForm = () => setFormIsOpened(true);
 
     return (
         <div className='container-footer'>

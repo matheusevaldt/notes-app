@@ -19,6 +19,8 @@ function App() {
   const [notes, setNotes] = useState([]);
   const [amountOfNotes, setAmountOfNotes] = useState(0);
   const [formIsOpened, setFormIsOpened] = useState(false);
+  const [noteEdited, setNoteEdited] = useState({});
+  const [noteIsBeingEdited, setNoteIsBeingEdited] = useState(false);
 
   return (
     <>
@@ -44,7 +46,12 @@ function App() {
           setNotes={setNotes} 
           amountOfNotes={amountOfNotes}
           setAmountOfNotes={setAmountOfNotes}
-          setFormIsOpened={setFormIsOpened} />
+          setFormIsOpened={setFormIsOpened} 
+          noteEdited={noteEdited}
+          setNoteEdited={setNoteEdited}
+          noteIsBeingEdited={noteIsBeingEdited}
+          setNoteIsBeingEdited={setNoteIsBeingEdited}
+        />
       }
       {
         amountOfNotes > 0 &&
@@ -53,7 +60,12 @@ function App() {
           setNotes={setNotes} 
           amountOfNotes={amountOfNotes} 
           setAmountOfNotes={setAmountOfNotes} 
-          setFormIsOpened={setFormIsOpened} />
+          setFormIsOpened={setFormIsOpened} 
+          noteEdited={noteEdited}
+          setNoteEdited={setNoteEdited}
+          noteIsBeingEdited={noteIsBeingEdited}
+          setNoteIsBeingEdited={setNoteIsBeingEdited}
+        />
       }
       <Footer 
         formIsOpened={formIsOpened} 

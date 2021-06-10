@@ -4,7 +4,7 @@ import '../Notes.css';
 // Importing components.
 import Note from './Note';
 
-const Notes = ({ notes, setNotes, amountOfNotes, setAmountOfNotes, setFormIsOpened }) => {
+const Notes = ({ notes, setNotes, amountOfNotes, setAmountOfNotes, setFormIsOpened, noteEdited, setNoteEdited, noteIsBeingEdited, setNoteIsBeingEdited }) => {
     return (
         <div className='notes-container'>
             <ul>
@@ -18,11 +18,16 @@ const Notes = ({ notes, setNotes, amountOfNotes, setAmountOfNotes, setFormIsOpen
                             priority={note.priority}
                             dayOfCreation={note.date.dayOfCreation}
                             hourOfCreation={note.date.hourOfCreation}
+                            lastUpdated={note.lastUpdated}
                             notes={notes} 
                             setNotes={setNotes} 
                             amountOfNotes={amountOfNotes}
                             setAmountOfNotes={setAmountOfNotes}
                             setFormIsOpened={setFormIsOpened}
+                            noteEdited={noteEdited}
+                            setNoteEdited={setNoteEdited}
+                            noteIsBeingEdited={noteIsBeingEdited}
+                            setNoteIsBeingEdited={setNoteIsBeingEdited}
                         />
                     ))
                 }
