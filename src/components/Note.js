@@ -1,7 +1,7 @@
 import React from 'react';
 import '../Note.css';
 
-const Note = ({ title, message, priority, dayOfCreation, hourOfCreation, lastUpdated, note, notes, setNotes, amountOfNotes, setAmountOfNotes, setFormIsOpened, noteEdited, setNoteEdited, noteIsBeingEdited, setNoteIsBeingEdited }) => {
+const Note = ({ title, message, priority, noteCreation, lastUpdated, note, notes, setNotes, amountOfNotes, setAmountOfNotes, setFormIsOpened, noteEdited, setNoteEdited, noteIsBeingEdited, setNoteIsBeingEdited }) => {
 
     const handleDeleteNote = () => {
         setNotes(notes.filter(element => element.id !== note.id));
@@ -33,14 +33,25 @@ const Note = ({ title, message, priority, dayOfCreation, hourOfCreation, lastUpd
 
     return (
         <div className='note-container' >
-            <h2>{title}</h2>
-            <li className={`note-message ${note.completed ? 'note-completed' : ''}`}>{message}</li>
-            <p>{priority}</p>
-            <p>DAY OF CREATION: {dayOfCreation}</p>
-            <p>HOUR OF CREATION: {hourOfCreation}</p>
-            <p>LAST UPDATED: {lastUpdated}</p>
+            <div className='note-header'>
+                <h2>{title}</h2>
+                <button onClick={handleDeleteNote} className='button-delete-note'>&times;</button>
+            </div>
+            <div className='note-main'>
+                <li className={`note-message ${note.completed ? 'note-completed' : ''}`}>{message}</li>
+            </div>
+            <p id='note-priority'>NOTE PRIORITY – <strong>{priority}</strong></p>
+            <div className='note-footer'>
+                <div>
+
+                </div>
+                <p>note was created on {noteCreation}</p>
+                <p className={`last-updated ${lastUpdated !== '' ? 'display-last-updated': ''}`}>LAST UPDATED: {lastUpdated}</p>
+            </div>
+            
+            
             <button onClick={handleStatusNote} className='button-status-note'>V</button>
-            <button onClick={handleDeleteNote} className='button-delete-note'>DELETE</button>
+            
             <button onClick={openEditNote} className='button-open-edit-note'>EDIT</button>
         </div>
     );

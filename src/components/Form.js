@@ -13,17 +13,13 @@ const Form = ({ setNotificationIsOpened, setNotificationMessage, noteTitle, setN
             setNotificationIsOpened(true);
             return;
         }
-        const date = new Date();
         setNotes([
             ...notes, { 
                 id: (Math.random() * 1000).toFixed(0), 
                 title: noteTitle, 
                 message: noteMessage, 
                 priority: notePriority, 
-                date: {
-                    hourOfCreation: `${date.getHours()}:${date.getMinutes()}`,
-                    dayOfCreation: date.toLocaleDateString('en-GB', { day: 'numeric', month: 'numeric' })
-                },
+                noteCreation: `${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'numeric' })} at ${new Date().getHours()}:${new Date().getMinutes()}.`,
                 lastUpdated: '',
                 completed: false 
             }

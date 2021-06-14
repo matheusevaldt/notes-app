@@ -9,3 +9,42 @@
 .note-container li {
     list-style: none;
 }
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.note-header h2 {
+    font-size: 1.1em;
+}
+
+.note-header button {
+    border: none;
+    padding-left: 15px;
+    background-color: transparent;
+    font-weight: 700;
+    font-size: 1.6em;
+}
+
+.note-main {
+    margin-bottom: 10px;
+}
+
+#note-priority {
+    font-size: 0.8em;
+}
+
+#note-priority strong {
+    text-transform: uppercase;
+}
+
+.last-updated {
+    display: none;
+}
+
+.display-last-updated {
+    display: block;
+}
