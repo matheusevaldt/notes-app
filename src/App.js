@@ -67,9 +67,12 @@ function App() {
           setNoteIsBeingEdited={setNoteIsBeingEdited}
         />
       }
-      <Footer 
-        formIsOpened={formIsOpened} 
-        setFormIsOpened={setFormIsOpened} />
+      {
+        !formIsOpened &&
+        <Footer 
+          formIsOpened={formIsOpened} 
+          setFormIsOpened={setFormIsOpened} />
+      }
     </>
   );
 

@@ -8,16 +8,16 @@ const Note = ({ title, message, priority, noteCreation, lastUpdated, note, notes
         setAmountOfNotes(amountOfNotes - 1);
     };
 
-    const handleStatusNote = () => {
-        setNotes(notes.map(element => {
-            if (element.id === note.id) {
-                return {
-                    ...element, completed: !element.completed
-                }
-            }
-            return element;
-        }));
-    };
+    // const handleStatusNote = () => {
+    //     setNotes(notes.map(element => {
+    //         if (element.id === note.id) {
+    //             return {
+    //                 ...element, completed: !element.completed
+    //             }
+    //         }
+    //         return element;
+    //     }));
+    // };
 
     const openEditNote = () => {
         console.log('A NOTE IS BEING EDITED.');
@@ -37,22 +37,22 @@ const Note = ({ title, message, priority, noteCreation, lastUpdated, note, notes
                 <h2>{title}</h2>
                 <button onClick={handleDeleteNote} className='button-delete-note'>&times;</button>
             </div>
+            <p className='note-priority'><strong>{priority}</strong> priority</p>
             <div className='note-main'>
                 <li className={`note-message ${note.completed ? 'note-completed' : ''}`}>{message}</li>
             </div>
-            <p id='note-priority'>NOTE PRIORITY – <strong>{priority}</strong></p>
             <div className='note-footer'>
-                <div>
-
+                <button onClick={openEditNote} className='button-open-edit-note'>EDIT NOTE</button>
+                <div className='note-footer-dates'>
+                    <p className='note-creation'>Note created on {noteCreation}</p>
+                    <p className={`last-updated ${lastUpdated !== '' ? 'display-last-updated': ''}`}>Last updated on {lastUpdated}</p>
                 </div>
-                <p>note was created on {noteCreation}</p>
-                <p className={`last-updated ${lastUpdated !== '' ? 'display-last-updated': ''}`}>LAST UPDATED: {lastUpdated}</p>
             </div>
             
             
-            <button onClick={handleStatusNote} className='button-status-note'>V</button>
+            {/* <button onClick={handleStatusNote} className='button-status-note'>V</button> */}
             
-            <button onClick={openEditNote} className='button-open-edit-note'>EDIT</button>
+            
         </div>
     );
 };
