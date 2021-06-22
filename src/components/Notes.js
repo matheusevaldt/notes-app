@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../Notes.css';
 
 // Importing components.
 import Note from './Note';
 
-const Notes = ({ notes, setNotes, amountOfNotes, setAmountOfNotes, setFormIsOpened, noteEdited, setNoteEdited, noteIsBeingEdited, setNoteIsBeingEdited }) => {
+const Notes = ({ notes, setNotes, amountOfNotes, setAmountOfNotes, setFormIsOpened, noteEdited, setNoteEdited, noteIsBeingEdited, setNoteIsBeingEdited, filter, setFilter, filteredNotes, setFilteredNotes }) => {
+
+    const handleFilterNotes = (event) => {
+        setFilter(event.target.value);
+    };
+
     return (
-        <div className='notes-container'>
-            <ul>
+        <>
+            <div className='filter-container'>
+                <p>Priority</p>
+                <select onChange={handleFilterNotes}>
+                    <option value='all'>All</option>
+                    <option value='low'>Low</option>
+                    <option value='medium'>Medium</option>
+                    <option value='high'>High</option>
+                </select>
+            </div>
+            <div className='notes-container'>
+                <ul>
                 {
-                    notes.map(note => (
+                    filteredNotes.map(note => (
                         <Note 
                             note={note}
                             key={note.id} 
@@ -31,7 +46,9 @@ const Notes = ({ notes, setNotes, amountOfNotes, setAmountOfNotes, setFormIsOpen
                     ))
                 }
             </ul>
-        </div>
+            </div>
+        </>
+        
     );
 };
 

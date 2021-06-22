@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import './global.css';
 
@@ -21,6 +21,29 @@ function App() {
   const [formIsOpened, setFormIsOpened] = useState(false);
   const [noteEdited, setNoteEdited] = useState({});
   const [noteIsBeingEdited, setNoteIsBeingEdited] = useState(false);
+  const [filter, setFilter] = useState('all');
+  const [filteredNotes, setFilteredNotes] = useState([]);
+
+  const handleDisplayNotes = () => {
+    switch (filter) {
+      case 'low':
+        setFilteredNotes(notes.filter(note => note.priority === 'low'));
+        break;
+      case 'medium':
+        setFilteredNotes(notes.filter(note => note.priority === 'medium'));
+        break;
+      case 'high':
+        setFilteredNotes(notes.filter(note => note.priority === 'high'));
+        break;
+      default:
+        setFilteredNotes(notes);
+        break;
+    }
+  };
+
+  useEffect(() => {
+    handleDisplayNotes();
+  }, [notes, filter]);
 
   return (
     <>
@@ -65,6 +88,10 @@ function App() {
           setNoteEdited={setNoteEdited}
           noteIsBeingEdited={noteIsBeingEdited}
           setNoteIsBeingEdited={setNoteIsBeingEdited}
+          filter={filter}
+          setFilter={setFilter}
+          filteredNotes={filteredNotes}
+          setFilteredNotes={setFilteredNotes}
         />
       }
       {

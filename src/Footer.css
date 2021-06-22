@@ -9,11 +9,17 @@
 .button-open-form {
     border: none;
     border-radius: 70px;
-    box-shadow: 2px 2px 4px rgba(125, 64, 231, 0.4);
     width: 70px;
     height: 70px;
     background-color: transparent;
     font-size: 1.5em;
-    color: #fff;
+    color: rgb(255, 255, 255, 0.6);
+    background-color: rgba(125, 64, 231, 0.4);
+    transition: 0.4s ease;
+}
+
+.button-open-form:focus,
+.button-open-form:hover {
     background-color: rgba(125, 64, 231, 0.8);
+    color: #fff;
 }

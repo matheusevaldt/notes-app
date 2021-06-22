@@ -1,5 +1,46 @@
+.filter-container,
 .notes-container {
     width: 90%;
+}
+
+.filter-container {
+    margin: 0 auto 15px auto;
+    text-align: right;
+}
+
+.filter-container p {
+    font-size: 0.8em;
+    color: #727272;
+    margin-bottom: 5px;
+}
+
+.filter-container select {
+    appearance: none;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    width: 120px;
+    font-size: 0.9em;
+    padding: 10px 0 10px 10px;
+    color: #60666d;
+    background-image: url('./images/arrow-select.png');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-color: #fff;
+    background-size: 14px;
+}
+
+/* .filter-container select option {
+    font-size: 0.9em;
+}
+
+.filter-container select option:focus,
+.filter-container select option:hover {
+    background-color: red;
+} */
+
+.notes-container {
     margin: 0 auto;
 }
 
