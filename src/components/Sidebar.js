@@ -22,8 +22,6 @@ const Sidebar = ({ amountOfNotes }) => {
             </p>
         );
         ReactDOM.render(sidebarDate, document.getElementById('date'));
-        console.log(new Date().toLocaleDateString('en-GB', options));
-        console.log('handleSidebarDate')
     };
 
     const handleSidebarGreetings = () => {
@@ -56,9 +54,8 @@ const Sidebar = ({ amountOfNotes }) => {
         handleSidebarGreetings();
     }, []);
     
-
     return (
-        <aside>
+        <aside className='sidebar-container'>
             <h1>Notes App</h1>
             <div id='greetings'></div>
             <div className='date-time'>
@@ -68,8 +65,6 @@ const Sidebar = ({ amountOfNotes }) => {
             </div>
             <div id='sidebar-hr'></div>
             <div id='amount-of-notes'>Notes added: {amountOfNotes}</div>
-            
-            {/* add priority when adding a note */}
         </aside>
     );
 };

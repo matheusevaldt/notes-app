@@ -139,3 +139,16 @@
 .note-footer-dates p {
     font-size: 0.75em;
 }
+
+
+
+
+
+@media (min-width: 520px) {
+
+    .note-container {
+        margin-bottom: 0;
+        height: auto;
+    }
+
+}

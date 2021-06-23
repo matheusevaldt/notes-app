@@ -1,5 +1,5 @@
 .filter-container,
-.notes-container {
+.notes-list {
     width: 90%;
 }
 
@@ -31,19 +31,34 @@
     background-size: 14px;
 }
 
-/* .filter-container select option {
-    font-size: 0.9em;
-}
-
-.filter-container select option:focus,
-.filter-container select option:hover {
-    background-color: red;
-} */
-
-.notes-container {
+.notes-list {
     margin: 0 auto;
 }
 
-.notes-container ul {
+.notes-list ul {
     padding-bottom: 30px;
+}
+
+#empty-filter {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.85em;
+    color: #60666d;
+}
+
+
+@media (min-width: 520px) {
+
+    .filter-container {
+        position: sticky;
+        top: 30px;
+        text-align: left;
+    }
+
+    /* .notes-list {
+        margin-top: 30px;
+    } */
+
+    
+
 }

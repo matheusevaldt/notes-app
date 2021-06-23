@@ -18,3 +18,10 @@ body, input, button, textarea {
 body {
     background-color: #e5e6f0;
 }
+
+/* @media (min-width: 520px) {
+    body {
+        flex-direction: row;
+        border: 1px solid red;
+    }
+} */

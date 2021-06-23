@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
 import './global.css';
+import './App.css';
 
 // Importing components.
 import Sidebar from './components/Sidebar';
@@ -46,7 +46,7 @@ function App() {
   }, [notes, filter]);
 
   return (
-    <>
+    <div className='main'>
       {
         notificationIsOpened &&
         <Notification 
@@ -91,7 +91,6 @@ function App() {
           filter={filter}
           setFilter={setFilter}
           filteredNotes={filteredNotes}
-          setFilteredNotes={setFilteredNotes}
         />
       }
       {
@@ -100,7 +99,7 @@ function App() {
           formIsOpened={formIsOpened} 
           setFormIsOpened={setFormIsOpened} />
       }
-    </>
+    </div>
   );
 
 }

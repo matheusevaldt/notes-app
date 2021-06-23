@@ -1,19 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import '../Notes.css';
 
 // Importing components.
 import Note from './Note';
 
-const Notes = ({ notes, setNotes, amountOfNotes, setAmountOfNotes, setFormIsOpened, noteEdited, setNoteEdited, noteIsBeingEdited, setNoteIsBeingEdited, filter, setFilter, filteredNotes, setFilteredNotes }) => {
+const Notes = ({ notes, setNotes, amountOfNotes, setAmountOfNotes, setFormIsOpened, noteEdited, setNoteEdited, noteIsBeingEdited, setNoteIsBeingEdited, filter, setFilter, filteredNotes }) => {
 
-    const handleFilterNotes = (event) => {
-        setFilter(event.target.value);
-    };
+    const handleFilterNotes = (event) => setFilter(event.target.value);
 
     return (
-        <>
+        <div className='notes-container'>
             <div className='filter-container'>
-                <p>Priority</p>
+                <p>Filter by priority</p>
                 <select onChange={handleFilterNotes}>
                     <option value='all'>All</option>
                     <option value='low'>Low</option>
@@ -21,9 +19,10 @@ const Notes = ({ notes, setNotes, amountOfNotes, setAmountOfNotes, setFormIsOpen
                     <option value='high'>High</option>
                 </select>
             </div>
-            <div className='notes-container'>
+            <div className='notes-list'>
                 <ul>
                 {
+                    filteredNotes.length !== 0 ?
                     filteredNotes.map(note => (
                         <Note 
                             note={note}
@@ -44,10 +43,11 @@ const Notes = ({ notes, setNotes, amountOfNotes, setAmountOfNotes, setFormIsOpen
                             setNoteIsBeingEdited={setNoteIsBeingEdited}
                         />
                     ))
+                    : <p id='empty-filter'>You haven't added any list with {filter} priority.</p>
                 }
             </ul>
             </div>
-        </>
+        </div>
         
     );
 };
