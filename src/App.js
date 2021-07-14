@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import './global.css';
 import './App.css';
 
 // Importing components.
-import Sidebar from './components/Sidebar';
+import Sidebar from './components/Sidebar/Sidebar';
+import DesktopFormButton from './components/DesktopFormButton/DesktopFormButton';
+import MobileFormButton from './components/MobileFormButton/MobileFormButton';
 import Form from './components/Form';
 import Notes from './components/Notes';
-import Footer from './components/Footer';
 import Notification from './components/Notification';
 
 function App() {
@@ -43,17 +43,41 @@ function App() {
 
   useEffect(() => {
     handleDisplayNotes();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [notes, filter]);
 
   return (
-    <div className='main'>
+    <div className='App'>
+
+      <div className='sidebar-wrapper'>
+        <Sidebar amountOfNotes={amountOfNotes} />
+        { window.innerWidth >= 1020 ? <DesktopFormButton setFormIsOpened={setFormIsOpened} /> : '' }
+      </div>
+
+      <Notes 
+        notes={notes} 
+        setNotes={setNotes} 
+        amountOfNotes={amountOfNotes} 
+        setAmountOfNotes={setAmountOfNotes} 
+        setFormIsOpened={setFormIsOpened} 
+        noteEdited={noteEdited}
+        setNoteEdited={setNoteEdited}
+        noteIsBeingEdited={noteIsBeingEdited}
+        setNoteIsBeingEdited={setNoteIsBeingEdited}
+        filter={filter}
+        setFilter={setFilter}
+        filteredNotes={filteredNotes}
+      />
+
+      { window.innerWidth < 1019 && !formIsOpened ? <MobileFormButton setFormIsOpened={setFormIsOpened} /> : '' }
+
       {
         notificationIsOpened &&
         <Notification 
           notificationMessage={notificationMessage} 
           setNotificationIsOpened={setNotificationIsOpened} />
       }
-      <Sidebar amountOfNotes={amountOfNotes} />
+
       {
         formIsOpened && 
         <Form 
@@ -76,29 +100,8 @@ function App() {
           setNoteIsBeingEdited={setNoteIsBeingEdited}
         />
       }
-      {
-        amountOfNotes > 0 &&
-        <Notes 
-          notes={notes} 
-          setNotes={setNotes} 
-          amountOfNotes={amountOfNotes} 
-          setAmountOfNotes={setAmountOfNotes} 
-          setFormIsOpened={setFormIsOpened} 
-          noteEdited={noteEdited}
-          setNoteEdited={setNoteEdited}
-          noteIsBeingEdited={noteIsBeingEdited}
-          setNoteIsBeingEdited={setNoteIsBeingEdited}
-          filter={filter}
-          setFilter={setFilter}
-          filteredNotes={filteredNotes}
-        />
-      }
-      {
-        !formIsOpened &&
-        <Footer 
-          formIsOpened={formIsOpened} 
-          setFormIsOpened={setFormIsOpened} />
-      }
+
+
     </div>
   );
 

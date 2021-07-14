@@ -1,10 +1,14 @@
-.filter-container,
-.notes-list {
-    width: 90%;
+.notes-empty {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.notes-empty p {
+    font-size: 0.9em;
+    color: #727272;
 }
 
 .filter-container {
-    margin: 0 auto 15px auto;
     text-align: right;
 }
 
@@ -32,11 +36,7 @@
 }
 
 .notes-list {
-    margin: 0 auto;
-}
-
-.notes-list ul {
-    padding-bottom: 30px;
+    margin-top: 15px;
 }
 
 #empty-filter {
@@ -47,18 +47,14 @@
 }
 
 
-@media (min-width: 520px) {
+@media (min-width: 1020px) {
 
-    .filter-container {
-        position: sticky;
-        top: 30px;
-        text-align: left;
+    .notes-empty {
+        margin-top: 55px;
     }
 
-    /* .notes-list {
-        margin-top: 30px;
-    } */
-
-    
+    .filter-container {
+        text-align: left;
+    }
 
 }

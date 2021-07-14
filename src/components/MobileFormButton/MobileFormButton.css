@@ -1,0 +1,15 @@
+.mobile-form-button-container {
+    position: fixed;
+    bottom: 20px;
+    right: 5%;
+}
+
+.mobile-form-button-container button {
+    width: 70px;
+    height: 70px;
+    border: none;
+    border-radius: 70px;
+    background-color: rgba(125, 64, 231, 0.4);
+    color: rgba(255, 255, 255, 1);
+    font-size: 1.5em;
+}

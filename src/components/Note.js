@@ -8,17 +8,6 @@ const Note = ({ title, message, priority, noteCreation, lastUpdated, note, notes
         setAmountOfNotes(amountOfNotes - 1);
     };
 
-    // const handleStatusNote = () => {
-    //     setNotes(notes.map(element => {
-    //         if (element.id === note.id) {
-    //             return {
-    //                 ...element, completed: !element.completed
-    //             }
-    //         }
-    //         return element;
-    //     }));
-    // };
-
     const openEditNote = () => {
         console.log('A NOTE IS BEING EDITED.');
         setNoteIsBeingEdited(true);
@@ -54,14 +43,12 @@ const Note = ({ title, message, priority, noteCreation, lastUpdated, note, notes
         if (element.clientHeight > 72) {
             element.classList.add('message-blur');
             element.nextSibling.classList.add('display-buttons-message');
-            console.log(element.nextSibling);
             // Reset buttons. Show Expand and Hide Collapse
             element.nextSibling.firstChild.style.display = 'block';
             element.nextSibling.firstChild.nextSibling.style.display = 'none';
         } else {
             element.nextSibling.classList.remove('display-buttons-message');
             element.classList.remove('message-blur');
-            // element.style.height = 'auto';
         }
     }, [message, note.id]);
 
@@ -77,8 +64,8 @@ const Note = ({ title, message, priority, noteCreation, lastUpdated, note, notes
                     {message}
                 </li>
                 <div className='buttons-message'>
-                    <button onClick={(e) => handleExpandButton(e)} className='button-expand'>EXPAND</button>
-                    <button onClick={(e) => handleCollapseButton(e)} className='button-collapse'>COLLAPSE</button>
+                    <button onClick={(e) => handleExpandButton(e)} className='button-expand'>EXPAND NOTE</button>
+                    <button onClick={(e) => handleCollapseButton(e)} className='button-collapse'>COLLAPSE NOTE</button>
                 </div>
             </div>
             <div className='note-footer'>

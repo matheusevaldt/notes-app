@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+
+.sidebar-container {
+    border-radius: 10px;
+    background-color: #fff;
+    width: 100%;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar-image {
+    max-width: 100%;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+}
+
+.sunrise-image {
+    background-image: url('../../images/sunrise.jpg');
+    background-position: center 70%;
+}
+
+.daytime-image {
+    background-image: url('../../images/daytime.jpg');
+    background-position: center 55%;
+}
+
+.sunset-image {
+    background-image: url('../../images/sunset.jpg');
+    background-position: center 70%;
+}
+
+.nighttime-image {
+    background-image: url('../../images/nighttime.jpg');
+    background-position: center 70%;
+}
+
+.sidebar-information {
+    padding: 15px;
+}
+
+.sidebar-container h1 {
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#date, #time, #amount-of-notes {
+    font-size: 0.9em;
+}
+
+.date-time {
+    display: flex;
+    margin-top: 2px;
+}
+
+#sidebar-hr {
+    background-color: rgba(150, 150, 150, 0.3);
+    height: 1px;
+    margin: 10px 0;
+}
+
+#greetings {
+    font-weight: 700;
+    font-size: 0.95em;
+}
+
+#date, #time {
+    color: #727272;
+}
+
+#circle {
+    display: inline-flex;
+    margin: auto 10px;
+    background-color: rgba(125, 64, 231, 0.8);
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+}
+
+@media (min-width: 1020px) {
+
+    .sidebar-information {
+        padding: 20px;
+    }
+
+    .sidebar-container h1 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+    
+    #date, #time, #amount-of-notes {
+        font-size: 0.95em;
+    }
+    
+    .date-time {
+        margin-top: 5px;
+    }
+    
+    #sidebar-hr {
+        margin: 15px 0;
+    }
+    
+    #greetings {
+        font-size: 1em;
+    }
+    
+    #circle {
+        height: 6px;
+        width: 6px;
+    }
+
+}
+

@@ -1,34 +1,84 @@
-.main {
-    /* border: 1px solid; */
-    display: flex;
-    flex-direction: column;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+html, body, #root {
+    min-height: 100%;
+}
+
+body, input, button, textarea {
+    font-family: Roboto, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+body {
+    background-color: #e5e6f0;
+}
+
+.App {
+    /* outline: 1px solid blue; */
+    width: 90%;
+    margin: 20px auto;
+    display: grid;
+    grid-template-areas: "sidebar-wrapper"
+                         "notes";
+    align-items: flex-start;
+}
+
+.sidebar-wrapper {
+    /* outline: 1px solid red; */
+    grid-area: sidebar-wrapper;
+    margin-bottom: 30px;
+}
+
+.notes-container {
+    /* outline: 1px solid green; */
+    grid-area: notes;
 }
 
 @media (min-width: 520px) {
 
-    .main {
-        flex-direction: row;
-        max-width: 1200px;
-        margin: 0 auto;
-        align-items: flex-start;
-        margin-top: 30px;
+    .App {
+        width: 500px;
     }
 
-    .sidebar-container {
-        width: 300px;
-        margin: 0 auto;
+}
+
+@media (min-width: 1020px) {
+
+    .App {
+        width: 1000px;
+        margin: 50px auto;
+        grid-template-columns: 40% 60%;
+        grid-template-areas: "sidebar-wrapper notes";
+    }
+
+    .sidebar-wrapper {
         position: sticky;
-        top: 30px;
+        top: 50px;
+        margin-bottom: 0;
+
     }
 
     .notes-container {
-        flex: 1;
-    }
-    
-    .notes-list ul {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
+        width: 80%;
+        margin: 0 auto;
     }
 
 }

@@ -1,0 +1,23 @@
+.desktop-form-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.desktop-form-button-container button {
+    width: 70%;
+    font-size: 1.1em;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    color: #fff;
+    padding: 16px 0;
+    border-radius: 15px;
+    border: none;
+    background-color: rgba(125, 64, 231, 0.8);
+    border-bottom: 5px solid rgba(125, 64, 231, 1);
+    transition: all 0.4s ease;
+}
+
+.desktop-form-button-container button:hover {
+    transform: translateY(-2px);
+}

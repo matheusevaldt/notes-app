@@ -67,6 +67,7 @@ const Form = ({ setNotificationIsOpened, setNotificationMessage, noteTitle, setN
     const handleCloseForm = () => {
         setFormIsOpened(false);
         setNoteIsBeingEdited(false);
+        setNotificationIsOpened(false);
         setNoteMessage('');
         setNoteTitle('');
         setNotePriority('');
@@ -90,7 +91,9 @@ const Form = ({ setNotificationIsOpened, setNotificationMessage, noteTitle, setN
         <div className='form-container'>
             <div className='form-visible'>
                 <div className='form-header'>
-                    <p>Adding a new note</p>
+                    <p>
+                        { !noteIsBeingEdited ? 'Adding a new note' : 'Editing note'}
+                    </p>
                     <button onClick={handleCloseForm}>&times;</button>
                 </div>
                 <form>
@@ -129,7 +132,7 @@ const Form = ({ setNotificationIsOpened, setNotificationMessage, noteTitle, setN
                     </button>
                 </form>
             </div>
-            <div className='form-invisible' onClick={() => { handleCloseForm(); setNotificationIsOpened(false); }}></div>
+            <div className='form-invisible' onClick={handleCloseForm}></div>
         </div>
         
     );
