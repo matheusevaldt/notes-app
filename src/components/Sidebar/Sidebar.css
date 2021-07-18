@@ -17,22 +17,22 @@
 }
 
 .sunrise-image {
-    background-image: url('../../images/sunrise.jpg');
+    background-image: url('../../assets/images/sunrise.jpg');
     background-position: center 70%;
 }
 
 .daytime-image {
-    background-image: url('../../images/daytime.jpg');
+    background-image: url('../../assets/images/daytime.jpg');
     background-position: center 55%;
 }
 
 .sunset-image {
-    background-image: url('../../images/sunset.jpg');
+    background-image: url('../../assets/images/sunset.jpg');
     background-position: center 70%;
 }
 
 .nighttime-image {
-    background-image: url('../../images/nighttime.jpg');
+    background-image: url('../../assets/images/nighttime.jpg');
     background-position: center 70%;
 }
 

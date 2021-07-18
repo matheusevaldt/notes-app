@@ -108,7 +108,7 @@ form textarea {
     background-color: rgba(229, 230, 240, 0.6);
     display: flex;
     flex: 1;
-    background-image: url('/src/images/x-15.png');
+    background-image: url('../../assets/images/close-button-with-opacity.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 110px;

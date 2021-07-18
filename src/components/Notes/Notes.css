@@ -28,7 +28,7 @@
     font-size: 0.9em;
     padding: 10px 0 10px 10px;
     color: #60666d;
-    background-image: url('./images/arrow-select.png');
+    background-image: url('../../assets/images/arrow-select.png');
     background-repeat: no-repeat;
     background-position: right 8px center;
     background-color: #fff;
@@ -50,11 +50,20 @@
 @media (min-width: 1020px) {
 
     .notes-empty {
-        margin-top: 55px;
+        margin-top: 120px;
     }
 
     .filter-container {
         text-align: left;
+    }
+
+    .filter-container select {
+        transition: box-shadow 0.4s ease;
+    }
+
+    .filter-container select:hover,
+    .filter-container select:focus {
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
     }
 
 }

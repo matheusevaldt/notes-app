@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Notification.css';
+import './Notification.css';
 
 const Notification = ({ notificationMessage, setNotificationIsOpened }) => {
 

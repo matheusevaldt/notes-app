@@ -5,9 +5,9 @@ import './App.css';
 import Sidebar from './components/Sidebar/Sidebar';
 import DesktopFormButton from './components/DesktopFormButton/DesktopFormButton';
 import MobileFormButton from './components/MobileFormButton/MobileFormButton';
-import Form from './components/Form';
-import Notes from './components/Notes';
-import Notification from './components/Notification';
+import Form from './components/Form/Form';
+import Notes from './components/Notes/Notes';
+import Notification from './components/Notification/Notification';
 
 function App() {
 
@@ -47,6 +47,7 @@ function App() {
   }, [notes, filter]);
 
   return (
+
     <div className='App'>
 
       <div className='sidebar-wrapper'>
@@ -69,7 +70,7 @@ function App() {
         filteredNotes={filteredNotes}
       />
 
-      { window.innerWidth < 1019 && !formIsOpened ? <MobileFormButton setFormIsOpened={setFormIsOpened} /> : '' }
+      { window.innerWidth < 1020 && !formIsOpened ? <MobileFormButton setFormIsOpened={setFormIsOpened} /> : '' }
 
       {
         notificationIsOpened &&
@@ -95,14 +96,14 @@ function App() {
           setAmountOfNotes={setAmountOfNotes}
           setFormIsOpened={setFormIsOpened} 
           noteEdited={noteEdited}
-          setNoteEdited={setNoteEdited}
+          // setNoteEdited={setNoteEdited}
           noteIsBeingEdited={noteIsBeingEdited}
           setNoteIsBeingEdited={setNoteIsBeingEdited}
         />
       }
 
-
     </div>
+
   );
 
 }

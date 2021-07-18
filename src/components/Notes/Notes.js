@@ -1,8 +1,8 @@
 import React from 'react';
-import '../Notes.css';
+import './Notes.css';
 
 // Importing components.
-import Note from './Note';
+import Note from '../Note/Note';
 
 const Notes = ({ notes, setNotes, amountOfNotes, setAmountOfNotes, setFormIsOpened, noteEdited, setNoteEdited, noteIsBeingEdited, setNoteIsBeingEdited, filter, setFilter, filteredNotes }) => {
 
@@ -49,7 +49,7 @@ const Notes = ({ notes, setNotes, amountOfNotes, setAmountOfNotes, setFormIsOpen
                                     setNoteIsBeingEdited={setNoteIsBeingEdited}
                                 />
                             ))
-                            : <p id='empty-filter'>You haven't added any list with {filter} priority.</p>
+                            : <p id='empty-filter'>You haven't added any note with {filter} priority.</p>
                         }
                     </ul>
                 </div>

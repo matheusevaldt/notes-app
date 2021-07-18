@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import '../Note.css';
+import './Note.css';
 
 const Note = ({ title, message, priority, noteCreation, lastUpdated, note, notes, setNotes, amountOfNotes, setAmountOfNotes, setFormIsOpened, noteEdited, setNoteEdited, noteIsBeingEdited, setNoteIsBeingEdited }) => {
 
