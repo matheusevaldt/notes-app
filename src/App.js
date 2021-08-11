@@ -8,6 +8,8 @@ import MobileFormButton from './components/MobileFormButton/MobileFormButton';
 import Form from './components/Form/Form';
 import Notes from './components/Notes/Notes';
 import Notification from './components/Notification/Notification';
+import MobileHeader from './components/MobileHeader/MobileHeader';
+import MobileMenu from './components/MobileMenu/MobileMenu';
 
 function App() {
 
@@ -23,6 +25,11 @@ function App() {
   const [noteIsBeingEdited, setNoteIsBeingEdited] = useState(false);
   const [filter, setFilter] = useState('all');
   const [filteredNotes, setFilteredNotes] = useState([]);
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [mobileMenuIsOpened, setMobileMenuIsOpened] = useState(false);
+
+
 
   const handleDisplayNotes = () => {
     switch (filter) {
@@ -46,13 +53,26 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [notes, filter]);
 
+  const updateWindowWidth = () => setWindowWidth(window.innerWidth);
+
+  useEffect(() => {
+    window.addEventListener('resize', updateWindowWidth);
+    return () => window.removeEventListener('resize', updateWindowWidth);
+  });
+
   return (
 
     <div className='App'>
 
+      <p>{windowWidth}</p>
+
+      <MobileHeader setMobileMenuIsOpened={setMobileMenuIsOpened} />
+
+      { mobileMenuIsOpened && <MobileMenu setMobileMenuIsOpened={setMobileMenuIsOpened} amountOfNotes={amountOfNotes} /> }
+      
       <div className='sidebar-wrapper'>
         <Sidebar amountOfNotes={amountOfNotes} />
-        { window.innerWidth >= 1020 ? <DesktopFormButton setFormIsOpened={setFormIsOpened} /> : '' }
+        <DesktopFormButton setFormIsOpened={setFormIsOpened} />
       </div>
 
       <Notes 
@@ -70,7 +90,7 @@ function App() {
         filteredNotes={filteredNotes}
       />
 
-      { window.innerWidth < 1020 && !formIsOpened ? <MobileFormButton setFormIsOpened={setFormIsOpened} /> : '' }
+      { windowWidth < 1020 && !formIsOpened ? <MobileFormButton setFormIsOpened={setFormIsOpened} /> : '' }
 
       {
         notificationIsOpened &&

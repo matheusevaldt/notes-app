@@ -36,14 +36,21 @@ body {
     width: 90%;
     margin: 20px auto;
     display: grid;
-    grid-template-areas: "sidebar-wrapper"
+    grid-template-areas: "mobile-header"
                          "notes";
     align-items: flex-start;
+}
+
+.mobile-header-container {
+    /* outline: 1px solid yellow; */
+    display: flex;
+    grid-area: mobile-header;
 }
 
 .sidebar-wrapper {
     /* outline: 1px solid red; */
     grid-area: sidebar-wrapper;
+    display: none;
     margin-bottom: 30px;
 }
 
@@ -69,7 +76,12 @@ body {
         grid-template-areas: "sidebar-wrapper notes";
     }
 
+    .mobile-header-container {
+        display: none;
+    }
+
     .sidebar-wrapper {
+        display: block;
         position: sticky;
         top: 50px;
         margin-bottom: 0;

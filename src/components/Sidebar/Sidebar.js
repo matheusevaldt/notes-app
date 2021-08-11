@@ -53,17 +53,17 @@ const Sidebar = ({ amountOfNotes }) => {
         ReactDOM.render(sidebarTime, document.getElementById('time'));
     };
 
-    setInterval(() => {
-        const date = new Date();
-        const hours = date.getHours();
-        const minutes = date.getMinutes();
-        const seconds = date.getSeconds();
-        if (minutes === 0 && seconds === 0) handleSidebarImage();
-        if (minutes === 0 && seconds === 0) handleSidebarGreetings();
-        if (hours === 0 && minutes === 0 && seconds === 0) handleSidebarDate();
-    }, 1000);
+    // setInterval(() => {
+    //     const date = new Date();
+    //     const hours = date.getHours();
+    //     const minutes = date.getMinutes();
+    //     const seconds = date.getSeconds();
+    //     if (minutes === 0 && seconds === 0) handleSidebarImage();
+    //     if (minutes === 0 && seconds === 0) handleSidebarGreetings();
+    //     if (hours === 0 && minutes === 0 && seconds === 0) handleSidebarDate();
+    // }, 1000);
 
-    setInterval(handleSidebarTime, 1000);
+    // setInterval(handleSidebarTime, 1000);
 
     useEffect(() => {
         handleSidebarImage();
