@@ -11,7 +11,7 @@
     grid-area: menu-visible;
     position: relative;
     background-color: #fff;
-    border-right: 1px solid rgba(0, 0, 0, 0.15);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .mobile-menu-invisible {
@@ -25,10 +25,10 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.30);
-    margin-bottom: 30px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.20);
+    margin-bottom: 20px;
 }
 
 .mobile-menu-info {
@@ -58,15 +58,11 @@
     border-radius: 50%;
 }
 
-#mobile-hr {
+/* #mobile-hr {
     background-color: rgba(150, 150, 150, 0.3);
     height: 1px;
     margin: 20px 0;
-}
-
-#mobile-notes-added {
-    font-size: 0.95em;
-}
+} */
 
 .button-close-mobile-menu {
     position: absolute;

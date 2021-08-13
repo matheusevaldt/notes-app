@@ -3,7 +3,9 @@ import daytimeImage from './assets/images/daytime.jpg';
 import sunsetImage from './assets/images/sunset.jpg';
 import nighttimeImage from './assets/images/nighttime.jpg';
 
-let date, hours, minutes;
+let date = new Date();
+let hours = date.getHours();
+let minutes = date.getMinutes();
 
 setInterval(() => {
     date = new Date();
@@ -22,14 +24,6 @@ export const getImageBasedOnTimeOfTheDay = () => {
         return nighttimeImage;
     }
 };
-
-// export const getImageBasedOnTimeOfTheDay = () => {
-//     if (minutes === 25) {
-//         return sunriseImage;
-//     } else {
-//         return nighttimeImage;
-//     }
-// };
 
 export const getGreetingBasedOnTimeOfTheDay = () => {
     if ((hours >= 6) && (hours <= 11 && minutes <= 59)) {

@@ -1,6 +1,6 @@
 .notes-empty {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 100px;
 }
 
 .notes-empty p {
@@ -8,8 +8,16 @@
     color: #727272;
 }
 
-.filter-container {
-    text-align: right;
+.notes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.notes-displayed {
+    padding: 0 0 10px 3px;
+    color: #727272;
+    font-size: 0.85em;
 }
 
 .filter-container p {
@@ -50,7 +58,7 @@
 @media (min-width: 1020px) {
 
     .notes-empty {
-        margin-top: 120px;
+        margin-top: 160px;
     }
 
     .filter-container {

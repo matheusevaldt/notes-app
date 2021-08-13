@@ -17,15 +17,25 @@ const Notes = ({ notes, setNotes, amountOfNotes, setAmountOfNotes, setFormIsOpen
                     <p>Your notes will be displayed here.</p>
                 </div> :
                 <div className='notes-content'>
-                    <div className='filter-container'>
-                        <p>Filter by priority</p>
-                        <select onChange={handleFilterNotes}>
-                            <option value='all'>All</option>
-                            <option value='low'>Low</option>
-                            <option value='medium'>Medium</option>
-                            <option value='high'>High</option>
-                        </select>
-                    </div>
+                    <header className='notes-header'>
+                        <div className='notes-displayed'>
+                            {
+                                filteredNotes.length === 1 ?
+                                '1 note' :
+                                `${filteredNotes.length} notes`
+                            }
+                        </div>
+                        <div className='filter-container'>
+                            <p>Filter by priority</p>
+                            <select onChange={handleFilterNotes}>
+                                <option value='all'>All</option>
+                                <option value='low'>Low</option>
+                                <option value='medium'>Medium</option>
+                                <option value='high'>High</option>
+                            </select>
+                        </div>
+                    </header>
+                    
                     <ul className='notes-list'>
                         {
                             filteredNotes.length !== 0 ?

@@ -25,11 +25,8 @@ function App() {
   const [noteIsBeingEdited, setNoteIsBeingEdited] = useState(false);
   const [filter, setFilter] = useState('all');
   const [filteredNotes, setFilteredNotes] = useState([]);
-
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [mobileMenuIsOpened, setMobileMenuIsOpened] = useState(false);
-
-
 
   const handleDisplayNotes = () => {
     switch (filter) {
@@ -64,11 +61,12 @@ function App() {
 
     <div className='App'>
 
-      <p>{windowWidth}</p>
-
       <MobileHeader setMobileMenuIsOpened={setMobileMenuIsOpened} />
 
-      { mobileMenuIsOpened && <MobileMenu setMobileMenuIsOpened={setMobileMenuIsOpened} amountOfNotes={amountOfNotes} /> }
+      { 
+        mobileMenuIsOpened && 
+        <MobileMenu setMobileMenuIsOpened={setMobileMenuIsOpened} amountOfNotes={amountOfNotes} /> 
+      }
       
       <div className='sidebar-wrapper'>
         <Sidebar amountOfNotes={amountOfNotes} />
@@ -94,9 +92,7 @@ function App() {
 
       {
         notificationIsOpened &&
-        <Notification 
-          notificationMessage={notificationMessage} 
-          setNotificationIsOpened={setNotificationIsOpened} />
+        <Notification notificationMessage={notificationMessage} setNotificationIsOpened={setNotificationIsOpened} />
       }
 
       {

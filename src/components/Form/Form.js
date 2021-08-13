@@ -11,6 +11,11 @@ const Form = (props) => {
 
     const handleNoteMessage = (event) =>  props.setNoteMessage(event.target.value);
 
+    const handlePriority = (event, priority) => {
+        event.preventDefault();
+        props.setNotePriority(priority);
+    };
+
     const handleSubmitNote = (event) => {
         event.preventDefault();
         if (props.noteTitle === '' || props.noteMessage === '' || props.notePriority === '') {
@@ -76,11 +81,6 @@ const Form = (props) => {
         props.setNoteMessage('');
         props.setNoteTitle('');
         props.setNotePriority('');
-    };
-
-    const handlePriority = (event, priority) => {
-        event.preventDefault();
-        props.setNotePriority(priority);
     };
 
     useEffect(() => {

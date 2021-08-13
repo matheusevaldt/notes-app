@@ -18,20 +18,10 @@ const MobileMenu = ({ setMobileMenuIsOpened, amountOfNotes }) => {
             const hours = date.getHours();
             const minutes = date.getMinutes();
             const seconds = date.getSeconds();
-            if (minutes === 0 && seconds === 0) {
-                setMobileImage(getImageBasedOnTimeOfTheDay);
-                console.log('UPDATE IMAGE');
-            }
-            if (minutes === 0 && seconds === 0) {
-                setMobileGreeting(getGreetingBasedOnTimeOfTheDay);
-                console.log('UPDATE GREETING');
-            }
-            if (hours === 0 && minutes === 0 && seconds === 0) {
-                setMobileCurrentDate(getCurrentDate);
-                console.log('UPDATE CURRENT DATE');
-            }
             setMobileCurrentTime(getCurrentTime);
-            console.log('UPDATE CURRENT TIME');
+            if (minutes === 0 && seconds === 0) setMobileGreeting(getGreetingBasedOnTimeOfTheDay);
+            if (minutes === 0 && seconds === 0) setMobileImage(getImageBasedOnTimeOfTheDay);
+            if (hours === 0 && minutes === 0 && seconds === 0) setMobileCurrentDate(getCurrentDate);
         }, 1000);
         return () => clearInterval(interval);
       }, []);
@@ -47,8 +37,7 @@ const MobileMenu = ({ setMobileMenuIsOpened, amountOfNotes }) => {
                         <div id='mobile-circle'></div>
                         <p>{mobileCurrentTime}</p>
                     </div>
-                    <div id='mobile-hr'></div>
-                    <p id='mobile-notes-added'>Notes added: {amountOfNotes}</p>
+                    {/* <div id='mobile-hr'></div>*/}
                 </div>
                 <button className='button-close-mobile-menu' onClick={closeMobileMenu}>CLOSE MENU</button>
             </div>

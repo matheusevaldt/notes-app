@@ -32,7 +32,6 @@ body {
 }
 
 .App {
-    /* outline: 1px solid blue; */
     width: 90%;
     margin: 20px auto;
     display: grid;
@@ -42,20 +41,17 @@ body {
 }
 
 .mobile-header-container {
-    /* outline: 1px solid yellow; */
-    display: flex;
     grid-area: mobile-header;
+    display: block;
+    margin-bottom: 20px;
 }
 
 .sidebar-wrapper {
-    /* outline: 1px solid red; */
     grid-area: sidebar-wrapper;
     display: none;
-    margin-bottom: 30px;
 }
 
 .notes-container {
-    /* outline: 1px solid green; */
     grid-area: notes;
 }
 
@@ -85,7 +81,6 @@ body {
         position: sticky;
         top: 50px;
         margin-bottom: 0;
-
     }
 
     .notes-container {

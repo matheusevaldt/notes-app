@@ -16,3 +16,5 @@ const MobileHeader = ({ setMobileMenuIsOpened }) => {
 };
 
 export default MobileHeader;
+
+// Fix header on the top after scroll
